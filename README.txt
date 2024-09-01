@@ -1,0 +1,1 @@
+Lesson queries from https://www.sqlservertutorial.net/sql-server-basics/
