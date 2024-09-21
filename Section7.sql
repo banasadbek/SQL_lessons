@@ -112,3 +112,18 @@ select staff_id,
 from sales.orders
 group by staff_id) t
 
+--cross apply
+select c.category_name,
+	r.product_name,
+	r.list_price
+from production.categories c
+cross apply(
+	select top 2 *
+	from production.products p
+	where p.category_id = c.category_id
+	order by list_price desc,
+		product_name) r
+order by c.category_name,
+	r.list_price desc
+
+
